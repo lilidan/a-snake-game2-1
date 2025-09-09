@@ -10,20 +10,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     color: white;
+    overflow: hidden;
 }
 
 .game-container {
     text-align: center;
-    padding: 2rem;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    max-width: 90vw;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -55,9 +60,11 @@ h1 {
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.2);
-    margin: 1rem 0;
-    max-width: 100%;
-    height: auto;
+    margin: clamp(0.5rem, 2vh, 1rem) 0;
+    width: min(90vw, 90vh);
+    height: min(90vw, 90vh);
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .controls {
@@ -102,8 +109,7 @@ button:active {
 
 @media (max-width: 768px) {
     .game-container {
-        padding: 1rem;
-        margin: 1rem;
+        padding: 0.75rem;
     }
     
     .score-container {
@@ -112,8 +118,10 @@ button:active {
     }
     
     #gameCanvas {
-        width: 100%;
-        max-width: 350px;
+        width: min(95vw, 95vh);
+        height: min(95vw, 95vh);
+        max-width: 400px;
+        max-height: 400px;
     }
     
     .controls {
@@ -121,13 +129,20 @@ button:active {
     }
     
     button {
-        padding: 0.6rem 1rem;
-        min-width: 80px;
+        padding: clamp(0.5rem, 2vw, 0.8rem) clamp(0.8rem, 3vw, 1.2rem);
+        min-width: 70px;
     }
 }
 
 @media (max-width: 480px) {
     #gameCanvas {
-        max-width: 300px;
+        width: min(95vw, 95vh);
+        height: min(95vw, 95vh);
+        max-width: 320px;
+        max-height: 320px;
+    }
+    
+    h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
     }
 }

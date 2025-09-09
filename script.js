@@ -29,10 +29,11 @@ class ColorfulSnakeGame {
     }
     
     resizeCanvas() {
-        const container = this.canvas.parentElement;
-        const maxWidth = Math.min(400, container.clientWidth - 40);
-        const maxHeight = Math.min(400, window.innerHeight - 300);
-        const size = Math.min(maxWidth, maxHeight);
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const minSize = Math.min(vw * 0.9, vh * 0.9);
+        const maxSize = 500;
+        const size = Math.min(minSize, maxSize);
         
         this.canvas.width = size;
         this.canvas.height = size;
